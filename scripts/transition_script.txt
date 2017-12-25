@@ -1,0 +1,10 @@
+CREATE EXTENSION pgcrypto;
+
+CREATE TABLE public.transition
+(
+    id uuid NOT NULL DEFAULT gen_random_uuid(),
+    ip character varying(40),
+    url character varying(500),
+    "date" timestamp without time zone NOT NULL DEFAULT now(),
+    CONSTRAINT transition_pkey PRIMARY KEY (id)
+)
