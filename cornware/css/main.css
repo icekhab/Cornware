@@ -1,0 +1,1090 @@
+@import "/fonts/Bjorn/bjorn.css";
+@import "/fonts/DinPro/dinpro.css";
+html, body {
+  font-size: 16px;
+}
+h1, h2, h3, h4, h5 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/*-------------------scrollbar---------------*/
+::-webkit-scrollbar-button {
+display: none;
+}
+
+::-webkit-scrollbar-track {
+display:none;
+}
+
+::-webkit-scrollbar-thumb {
+display:none;
+}
+
+::-webkit-resizer{
+display:none;
+}
+
+::-webkit-scrollbar{
+width: 11px;
+}
+/*------------------/scrollbar---------------*/
+a {
+  color: #7b7b7b;
+  text-decoration: underline;
+  transition: all 0.25s;
+}
+::-moz-selection {
+background: #ffc300; /* Safari */
+color: #f7f7f7;
+}
+::selection {
+background: #ffc300; /* Safari */
+color: #f7f7f7;
+}
+::-moz-selection {
+background: #ffc300; /* Firefox */
+color: #f7f7f7;
+}
+a:hover, a:focus {
+  color: #f9c726;
+}
+.text-primary {
+  color: #f9c726;
+}
+.text-muted {
+  color: #949494;
+}
+body {
+  background-color: #141414;
+  color: #f7f7f7;
+  font-family: "DIN Pro";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.31rem;
+}
+b {
+   font-family: "DIN Pro Bold";
+}
+p {
+  margin-bottom: 1.5rem;
+}
+body.main-page section#main {
+  display: flex;
+}
+body.main-page section {
+  /* max-height: 450px; */
+  padding: 1.5rem 0;
+  /*display: flex;*/
+}
+body.main-page section .section-header {
+  margin-bottom: 2rem;
+}
+/*----------------main---------*/
+section#main {
+  justify-content: space-around;
+  min-height: 90vh;
+  flex-direction: column;
+}
+section#main .container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  height: auto;
+  display: block;
+}
+section#main h3 {
+  color: #e09e00;
+  font-family: Bjorn;
+  font-size: 0.813rem;
+  /* line-height: 2.5rem; */
+  margin-left: 7px;
+}
+section#main header {
+  /* margin: 0 -20px; */
+}
+section#main header .company-logo {
+  height: 3.35rem;
+  width: 100%;
+  background-size: contain;
+  background-position: left;
+  background-image: url("/images/logo-xs.png");
+  background-repeat: no-repeat;
+}
+#corn-arc {
+  transform: translateZ(0);
+  will-change: backround;
+  background-image: url("/images/arc-cover.svg"), url("/images/corn-background.jpg");
+  min-height: 5.938rem;
+  height: 21.6vh;
+  background-size: 100% 100%, cover;
+}
+/*---------------/main---------*/
+.items .view-port .slider-container {
+    border: none;
+}
+.navbar-inverse {
+  background: transparent;
+  background: linear-gradient(to bottom, rgba(20, 20, 20, 0.75), rgba(20, 20, 20, 0.35) 50%, transparent);
+  box-shadow: none;
+  border: none;
+  height: 6rem;
+}
+.navbar-toggle {
+  border: none;
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+  background: transparent;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+  transition: transform 0.5s;
+}
+.navbar-inverse .navbar-toggle.active .icon-bar:nth-child(1){
+  transform: rotate(45deg) translateX(0.5rem);
+}
+.navbar-inverse .navbar-toggle.active .icon-bar:nth-child(3){
+  transform: rotate(-45deg) translateX(0.5rem);
+}
+.navbar-inverse .navbar-toggle.active .icon-bar:nth-child(2){
+  opacity: 0;
+}
+/*-------------about us---------*/
+section#about-us header h3 {
+  font-family: "DIN Pro";
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 3.375rem;
+}
+section#about-us header h2 {
+  font-family: Bjorn;
+  font-size: 2.813rem;
+  line-height: 3.063rem;
+}
+section#about-us .service {
+  font-size: 1rem;
+  /* line-height: 3.125rem; */
+  display: inline-block;
+  width: 100%;
+}
+section#about-us .service .fa {
+  float: right;
+}
+section#about-us article {
+  /* margin-bottom: 1rem; */
+}
+/*------------/about us---------*/
+a.slide-down {
+  /* width: 9rem; */
+  /* height: 3.125rem; */
+  color: #f7f7f7;
+  font-family: "DIN Pro Bold";
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+a.slide-down .fa {
+  font-size: 1.3rem;
+}
+a.slide-down[aria-expanded="true"] .fa {
+  color: #f9c726;
+  transform: rotate(180deg);
+}
+
+ul {
+  list-style-type: none;
+  border-left: 2px solid #f9c726;
+  padding-left: 1rem;
+  color: #949494;
+  margin: 1rem 0 2rem;
+}
+ul li:not(:last-child) {
+ margin-bottom: 0.7rem;
+}
+.navbar ul {
+  border: none;
+}
+.navbar {
+  font-size: 1.125rem;
+}
+
+nav.navbar .navbar-collapse{
+  background-color: #141414;
+  height: 100vh;
+  z-index: 1;
+  max-height: initial;
+  position: absolute;
+  right: 0;
+  margin: 0;
+  width: 100%;
+  text-align:center;
+}
+.navbar a, .navbar a:hover, .navbar a:visited {
+  text-decoration: none;
+}
+.navbar .navbar-brand {
+  padding-top: 2rem;
+}
+.navbar .navbar-brand h3 {
+  font-family: Bjorn;
+  font-size: 1.938rem;
+}
+.navbar .navbar-brand h4 {
+  font-size: 0.556rem;
+}
+.navbar-nav>li>a {
+  padding-top: 2.2rem;
+  padding-bottom: 0;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+  color: #e6b823;
+  background-color: transparent;
+}
+.btn {
+  border: none;
+  box-shadow: none;
+  padding: 0 1rem;
+  text-decoration: none;
+  line-height:2rem;
+}
+.btn-primary {
+border-radius: 1.25rem;
+background-color: #f9c726;
+text-align: center;
+line-height:2.4rem;
+transition: opacity 0.5s;
+}
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+  background: transparent;
+  opacity: 0.2;
+}
+a.contact-us {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+.get-back {
+    margin-left: 5.2rem;
+}
+
+/*------------portfolio---------*/
+section#portfolio .item,
+section#team .item {
+  margin-bottom: 1.2rem;
+  padding: 0;
+}
+section#portfolio .items,
+section#team .items {
+  margin-bottom: 1rem;
+}
+.col-xs-6:nth-child(odd){
+  padding-right:10px;
+}
+.col-xs-6:nth-child(even) {
+  padding-left: 10px;
+}
+section#portfolio .item:nth-child(odd),
+section#team .item:nth-child(odd){
+  padding-right:10px;
+}
+section#portfolio .item:nth-child(even),
+section#team .item:nth-child(even) {
+  padding-left: 10px;
+}
+.img-wrap {
+  display:block;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.img-wrap:hover {
+  background: rgb(229, 175, 25);
+}
+.img-wrap:hover img {
+  opacity: 0.5;
+  width: 100%;
+  cursor: pointer;
+}
+section#portfolio .img-wrap,
+section#team .img-wrap {
+  width: 100%;
+}
+.img-wrap img {
+  width: 100%;
+}
+.show-more {
+    width: 100%;
+}
+/*------------/portfolio---------*/
+/*------------partners---------*/
+section#partners .item {
+  height: 5.438rem;
+  border-radius: 0.425rem;
+  background-color: #f7f7f7;
+  display: flex;
+  padding: 1rem 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+section#partners .item img {
+  max-width: 100%;
+  max-height: 100%;
+}
+section#partners .partners-list {
+  margin-bottom: 1.5rem;
+}
+.btn-primary:hover, .btn-primary:active:hover, .btn-primary.active:hover, .open>.dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open>.dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open>.dropdown-toggle.btn-primary.focus {
+  background-color: #fbc107;
+  outline: none;
+}
+/*-----------/partners---------*/
+.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #a1a1a1;
+  border-radius: 0;
+  padding-left:0;
+  padding-right: 0;
+  margin-bottom: 1.7rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #f7f7f7;
+  height: auto;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #f9c726;
+}
+/*------------contacts---------*/
+.contact-form button {
+  margin-top: 2rem;
+}
+section#contacts .details {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+section#contacts .details p {
+  margin: 1.5rem 0;
+}
+/*-----------/contacts---------*/
+/*------------vacancies---------*/
+section#vacancies ul {
+  border-left: none;
+  margin-left: 0;
+  padding-left: 0;
+  /* margin-bottom: 0; */
+  /* list-style-type: disc; */
+}
+
+section#vacancies li {
+    padding-left: 1em;
+    text-indent: -.7em;
+}
+
+section#vacancies li:before {
+    content: "\2022";
+    margin-right: 0.5rem;
+    color: #f9c726; /* or whatever color you prefer */
+}
+section#vacancies .vacancy > a {
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #f7f7f7;
+}
+section#vacancies .vacancy > a[aria-expanded=true] {
+  border-color: #f9c726;
+}
+section#vacancies .vacancy-info {
+  width: 100%;
+  display: inline-block;
+}
+section#vacancies .vacancy-description {
+  font-size: 0.75rem;
+  padding-top: 2rem;
+}
+section#vacancies .vacancy .text-primary {
+  font-family: "Din Pro Medium";
+}
+section#vacancies .vacancy .fa-angle-down {
+  float: right;
+}
+/*-----------/vacancies---------*/
+body > footer {
+  text-align: center;
+  margin: 2.4rem 0 2rem 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+body > footer a {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  ul.nav.navbar-nav.navbar-right {
+    background-image: url("/images/underline.svg");
+    background-position: -2rem bottom;
+    background-repeat: no-repeat;
+    background-size: auto 2px;
+    transition: all 0.5s;
+    margin-right: 0.6rem;
+  }
+  section#main header .company-logo {
+    height: 6.8rem;
+    width: 100%;
+    background-image: url("/images/logo-sm.png");
+  }
+  section#main header {
+    /* margin-top: 6.7rem; */
+  }
+  section#main h3 {
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 5rem;
+    margin-left: 15px;
+  }
+  #corn-arc {
+    background-image: url("/images/arc-cover.svg"), url("/images/corn-background.jpg");
+    height: 18.813rem;
+  }
+  /*-------------about us---------*/
+  section#about-us header h3 {
+    font-size: 1.875rem;
+    line-height: 3.375rem;
+  }
+  section#about-us header h2 {
+    font-size: 3.75rem;
+    line-height: 3.75rem;
+  }
+  section .button-wrap {
+    text-align: center;
+  }
+  a.contact-us {
+    width: 12.5rem;
+  }
+  section#about-us ul li:nth-child(odd) {
+    float: right;
+    text-align: left;
+    width: 50%;
+  }
+  section#about-us .service {
+    font-size: 1.313rem;
+  }
+  section#about-us .ul-label {
+    font-size: 1.125rem;
+  }
+  /*------------/about us---------*/
+  body.main-page section .section-header {
+    font-size: 1.875rem;
+    font-family: "Din Pro Medium";
+    margin-top: 4rem;
+  }
+  /*------------portfolio---------*/
+  section#portfolio .img-wrap {
+    margin-bottom:0.5rem;
+  }
+  section#portfolio .item {
+    font-size: 1.2rem;
+
+  }
+
+  section#portfolio .items, section#team .items,
+  section#partners .partners-list {
+    margin-bottom: 5.4rem;
+  }
+  .show-more {
+    width: 17.5rem;
+  }
+  /*------------/portfolio---------*/
+  /*------------partners---------*/
+  section#partners .partners-list {
+    margin-top: 2.68rem;
+  }
+  /*------------/partners---------*/
+  /*------------contacts---------*/
+  section#contacts  {
+    font-size: 1rem;
+  }
+  section#contacts .details {
+    text-align: left;
+    margin: 0;
+    line-height: 1.875rem;
+  }
+  section#contacts header {
+    margin-bottom: 6rem;
+  }
+  section#contacts .details p:first-child {
+    margin-top: 0;
+  }
+  section#contacts form .btn-primary {
+    background: none;
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+    float: right;
+    font-size: 1rem;
+  }
+  section#contacts form .btn-primary:after {
+    content: "";
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAICAYAAAAx8TU7AAAAUklEQVQYV3WOoRGAMBRDXywDdIROCI4puC6BwDEBDNFNsOHa+wJRIiJeLpfIdgVWSQch2c7ACRRJW+NqZjtFcANzhxFMwA48//BTv4BlPDS69AJH1ydREtc7hAAAAABJRU5ErkJggg==");
+    background-size: 5px 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 1.938rem;
+    height: 1.875rem;
+    background-color: #f9c726;
+    border-radius: 90rem;
+    vertical-align: middle;
+    margin-left:1rem;
+  }
+  section#contacts .btn-primary:hover:after {
+    box-shadow: 0 0 0 10px rgba(249, 199, 38, 0.4);
+  }
+  /*-----------/contacts---------*/
+  body > footer a {
+    display: initial;
+  }
+  body > footer {
+    font-size: 0.813rem;
+  }
+  body > footer .copyright {
+    text-align: right;
+  }
+  body > footer .social-icons {
+    text-align: left;
+    display: block !important;
+  }
+  body > footer .social-icons a {
+    display: inline-block;
+    margin-right: 1.4rem;
+    font-size: 1.8rem !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /*---------------------------------slider-----------------------------------*/
+  .items .view-port {
+    overflow: hidden;
+    position: relative;
+    /* width: 100%; */
+    width: 64%;
+  }
+  .items .view-port .slider-container {
+    position: relative;
+    height: 23rem;
+    margin: 0;
+    padding: 0;
+  }
+  .items .item {
+    position: absolute;
+    width: 15rem;
+    /* height: 20rem; */
+  }
+  section#portfolio .item:nth-child(odd),
+  section#team .item:nth-child(odd){
+    padding-right: 2rem;
+    padding-left: 0;
+  }
+  section#portfolio .item:nth-child(even),
+  section#team .item:nth-child(even) {
+    padding-right: 2rem;
+    padding-left: 0;
+  }
+
+  /*--------------------------------/slider-----------------------------------*/
+  .container {
+    width: 75rem;
+  }
+  body > footer .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+  }
+  body > footer {
+    font-size: 0.688rem;
+    position: fixed;
+    z-index: 8;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #0e0e0e);
+    padding: 2vh 0;
+  }
+  nav.navbar .navbar-collapse {
+    background-color: transparent;
+    padding-top: 0.4rem;
+  }
+  ul.navbar-left {
+    border: none;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    z-index: 8;
+    margin: 0;
+    justify-content: center;
+    padding-left: 0.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+  ul.navbar-left li {
+    margin: 0.1rem 0.2rem;
+    padding: 0;
+    line-height: 1rem;
+    cursor: pointer;
+  }
+  ul.navbar-left li:hover a svg {
+    fill: #fff;
+  }
+  ul.navbar-left li a, ul.navbar-right li a svg {
+    transition: all 0.5s;
+  }
+
+  ul.navbar-left a {
+    width:2rem;
+    height: 1.3rem;
+    display: inline-block;
+  }
+  ul.navbar-left a svg {
+    height: 2px;
+    fill: #a1a1a1;
+    width: 1.3rem;
+  }
+  ul.navbar-left li.active a svg{
+    fill: #e5af19;
+    width: 2.688rem;
+  }
+  body.main-page section .section-header {
+    margin-top: 0rem;
+    /* margin-top: 18vh; */
+    font-size: 2.5rem;
+    margin-bottom: 6rem;
+  }
+  /*-------------main-------------*/
+   section#main header .company-logo {
+    height: 8.25rem;
+    width: 100%;
+    background-image: url("/images/logo-lg.png");
+    opacity: 0;
+  }
+  section#main h3 {
+    font-size: 1.5rem;
+    margin-left: 0;
+    opacity: 0;
+  }
+  #corn-arc {
+    background: url("/images/arc.svg"), url("/images/kukuruza-1-optimized-laptop-mid.jpg");
+  }
+  #corn-arc, #anim-eclipse {
+    width: 38.7%;
+    position: fixed;
+    opacity: 1;
+    margin-top: 0;
+    background-position: right, center;
+    background-size: auto 100%, cover;
+    top:0;
+    background-repeat: no-repeat;
+    right: 0;
+    padding: 0;
+    height: 100vh;
+  }
+  #anim-eclipse {
+    background: none;
+    transform: translateZ(0);
+    will-change: transform;
+    width: auto;
+    left: 50%;
+
+    animation-name: eclipseScale;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.14, 0.77, 0.5, 0.88);
+    animation-fill-mode: both;
+  }
+
+  #anim-eclipse {
+    /* border: 1px solid red; */
+  }
+  .fade-in, .fade-out {
+    animation-function: ease-in-out;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+  }
+  .fade-in {
+    animation-name: fadein;
+  }
+  .fade-out {
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-function: ease-in;
+    animation-name: fadeout;
+  }
+
+  @keyframes fadein {
+    100% {
+      opacity: 1
+    }
+  }
+  @keyframes fadeout {
+    100% {
+      opacity: 0;
+    }
+  }
+  .slide-to-right {
+    animation-name: slideRight;
+    animation-fill-mode: both;
+    animation-function: ease-in;
+    animation-duration: 0.7s;
+  }
+  @keyframes slideRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .slide-to-right-out {
+    animation-name: slideRightOut;
+    animation-fill-mode: both;
+    animation-function: ease-out;
+    animation-duration: 0.5s;
+  }
+  @keyframes slideRightOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+  }
+
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #f9c726;
+    align-items: center;
+    font-size: 20vh;
+    padding-left: 20px;
+  }
+  .preloader .fa {
+    font-size: 75%;
+    margin-top: 14px;
+  }
+
+
+  section#main .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbar-top {
+    z-index:900;
+  }
+  .navbar-top .navbar-brand, .navbar-top .navbar-right, body > footer, .navbar-left, a.contact-us, .slider-controls {
+    opacity: 0;
+  }
+  .navbar-top .navbar-brand {
+    z-index: 7777;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 0.5rem !important;
+  }
+  /*------------/main-------------*/
+  /*-------------about us---------*/
+  section#about-us header h3 {
+    font-size: 2.813rem;
+    line-height: 3.688rem;
+  }
+  section#about-us header h2 {
+    font-size: 4.188rem;
+    line-height: 4.188rem;
+  }
+  section#about-us article {
+    font-size: 1rem;
+  }
+  p {
+    margin-bottom: 1.5rem;
+  }
+  section#about-us .service {
+    font-size: 1rem;
+  }
+  section#about-us ul li:nth-child(odd) {
+    float: none;
+    text-align: left;
+    width: 50%;
+  }
+  a.contact-us {margin-top: 0;width: auto;margin-left: 5.2rem;padding: 0;}
+  .btn-primary {
+    position: fixed;
+    font-size: 0.75rem;
+    background: transparent;
+    width: auto;
+  }
+  .btn-primary:before {
+    transition: 0.25s all;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 0.75rem;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f067";
+    width: 2.063rem;
+    padding: 0.7rem;
+    height: 2.063rem;
+    background: #f9c726;
+    border-radius: 90rem;
+    vertical-align: middle;
+    margin-right: 1.5rem;
+  }
+  .btn-primary:hover {
+    background: transparent;
+  }
+  .btn-primary:hover:before {
+    box-shadow: 0 0 0 10px rgba(249, 199, 38, 0.4);
+  }
+  section#about-us .service .fa {
+    float: none;
+    margin-left:0.25rem;
+  }
+  .get-back:before {
+    content: "\f00d";
+    padding: 0.6rem;
+  }
+  /*-------------/about us---------*/
+  /*-------------portfolio---------*/
+  section .item b {
+    font-size: 1.125rem;
+  }
+  section#portfolio .item {
+    font-size: 1.125rem;
+  }
+  section#portfolio .item,
+  section#team .item {
+    margin-bottom: 1.2rem;
+    padding: 0;
+  }
+
+  .slider-controls, .lg-right {
+    position:  fixed;
+    top: 0;
+    width: 27%;
+    right: 0;
+    height:  100%;
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+   }
+  .slider-controls .wrap{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .slider-controls .counter {
+    margin-left: 1rem;
+    margin-right: -1rem;
+    width: 4.2rem;
+  }
+  .slider-controls .controls, .lg-right .button-wrap {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+  }
+  .slider-controls .counter > div {
+    display: inline-block;
+  }
+  .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary, .btn-primary:focus {
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+  }
+  .slider-controls  button:nth-child(1) {
+    margin-top: -2.5rem;
+  }
+  .slider-controls  button:nth-child(2) {
+    margin-top: 2.5rem;
+
+  }
+  .slider-controls .number {
+      font-size: 2rem;
+  }
+  .slider-controls .of {
+      font-size: 1.25rem;
+  }
+  .col-xs-6:nth-child(odd) {
+    padding-right: 20px;
+  }
+  .col-xs-6:nth-child(even) {
+    padding-left: 20px;
+  }
+  /*------------/portfolio---------*/
+  /*------------vacancies---------*/
+  section#vacancies ul {
+    margin-bottom: 0.5rem;
+  }
+  /*-----------/vacancies---------*/
+  /*------------partners---------*/
+  section#partners .item {
+    height: 9.563rem;
+  }
+  section#partners .item:hover {
+    background: rgb(241, 200, 71);
+  }
+  section#partners .item:hover img {
+    opacity: 0.4;
+    filter: saturate(50%);
+  }
+  /*-----------/partners---------*/
+  /*-----------contacts---------*/
+  section#contacts .details {
+    display: flex;
+    justify-content:space-between;
+  }
+  section#contacts form .btn-primary {
+     position: relative;
+     margin-bottom: 1rem;
+  }
+  section#contacts form .btn-primary:before {
+    display: none;
+  }
+  section#contacts header {
+    margin-bottom: 3.45rem;
+    margin-top: -4rem;
+  }
+  section#contacts .details p {
+    margin-top: 0;
+    margin-bottom: 5.2rem;
+    line-height: initial;
+  }
+  section#contacts {
+    /* margin-bottom: 4rem; */
+  }
+  #vacancies .button-wrap {
+    height: 100%;
+  }
+  #vacancies .button-wrap a {
+    padding: 0;
+  }
+  #vacancies .show-more {
+    display: block;
+    position: relative;
+  }
+  .contact-form button {
+    margin-top: 0;
+  }
+  /*-----------/contacts---------*/
+  /*-----------feedback---------*/
+  section#feedback .section-header h3 {
+    font-size: 3.438rem;
+    font-family: "Bjorn";
+    font-weight: 400;
+    color: #f9c726;
+  }
+  section#feedback .section-header h4 {
+    font-size: 0.938rem;
+    font-family: "Bjorn";
+    font-weight: 400;
+    color: #fff;
+    margin-top: 0.2rem;
+    margin-left: 3px;
+  }
+  section#feedback .form-desc {
+    margin-bottom: 4rem;
+    margin-top: -4rem;
+  }
+  section#feedback form .btn-primary {
+    background: none;
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+    float: right;
+    position: relative;
+  }
+  section#feedback form .btn-primary:before {
+    display: none;
+  }
+  section#feedback form  .btn-primary:after {
+    transition: 0.25s all;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 0.75rem;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f067";
+    width: 2.063rem;
+    padding: 0.7rem;
+    height: 2.063rem;
+    background: #f9c726;
+    border-radius: 90rem;
+    vertical-align: middle;
+    margin-left: 1.5rem;
+  }
+  section#feedback form  .btn-primary:hover:after {
+    box-shadow: 0 0 0 10px rgba(249, 199, 38, 0.4);
+  }
+  /*-----------/feedback---------*/
+  .btn.prev:before {
+    content: "\f104";
+    font-size: 1.2rem;
+    padding: 0.45rem 0.7rem 0.55rem 0.55rem;
+  }
+  .btn.next:before {
+    content: "\f105";
+    font-size: 1.2rem;
+    padding: 0.45rem 0.55rem 0.55rem 0.7rem;
+  }
+  .btn-primary:hover, .btn-primary:active:hover, .btn-primary.active:hover, .open>.dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open>.dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open>.dropdown-toggle.btn-primary.focus {
+    background: transparent;
+    outline: none;
+  }
+  .animated-row {
+    opacity: 0;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+  body {
+    overflow: hidden;
+  }
+  body.main-page > section {
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    /* width: 61.3vw; */
+    z-index: 4;
+    top: 0;
+    padding-top: 0;
+    padding-left: 7%;
+    height: 100vh;
+    padding-bottom: 0;
+  }
+  body.main-page > section .container {
+    overflow-X: hidden;
+    /* display: flex; */
+    padding-bottom: 4rem;
+    padding-top: 11.8%;
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    margin-left: 5.5%;
+  }
+}
+
+@media screen and (min-width: 1600px) and (min-resolution: 96dpi) {
+  html, body {
+    font-size: 18pt;
+  }
+}
+@media screen and (min-width: 1600px) and (min-resolution: 192dpi) {
+  html, body {
+    font-size: 24px;
+  }
+}

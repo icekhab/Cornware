@@ -1,0 +1,20 @@
+ @font-face {
+    font-family: "DIN Pro";
+	src: url('DINPro.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+ @font-face {
+    font-family: "DIN Pro Medium";
+	src: url('dinpro-medium.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+ @font-face {
+    font-family: "DIN Pro Bold";
+	src: url('dinpro-bold.otf');
+	font-weight: normal;
+	font-style: normal;
+}
