@@ -1,50 +1,49 @@
 'use strict';
 
-$("document").ready(function(){
-  //form validation
-  $("form button").click(function(event){
-    let inputs = $(this).parents("form").find("input, textarea"),
-        warnings = 0;
-    for(let input of inputs) {
-      let val = $(input).val().trim();
+window.validateForm = function (inputs) {
+  debugger
+  let warnings = 0;
+  for (let input of inputs) {
+    let val = $(input).val().trim();
 
-      if (input.required) {
-        if (val === "") {
-          alert("Все поля формы должны быть заполнены");
+    if (input.required) {
+      if (val === "") {
+        alert("Все поля формы должны быть заполнены");
+        event.preventDefault();
+        warnings++;
+        break;
+      }
+      if (input.type == "email") {
+        var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!re.test(val)) {
+          alert("Введите корректный email");
           event.preventDefault();
           warnings++;
           break;
         }
-        if(input.type == "email") {
-          var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-          if (!re.test(val)) {
-            alert("Введите корректный email");
-            event.preventDefault();
-            warnings++;
-            break;
-          }
-        }
       }
     }
-    if (warnings === 0) {
-      alert("Спасибо, Ваше сообщение отправлено");
-    }
-  });
+  }
+  return warnings === 0;
+}
+
+$("document").ready(function () {
+
+
+
   //-form validation
-
-
 
   var navMain = $(".navbar-top");
   navMain.on("click", "a", null, function () {
-     navMain.find('.navbar-collapse').removeClass("in");
+    navMain.find('.navbar-collapse').removeClass("in");
   });
-  $(".navbar-inverse .navbar-toggle").click(function(){
+  $(".navbar-inverse .navbar-toggle").click(function () {
     $(this).toggleClass("active");
   });
   let fullvw = document.documentElement.clientWidth || window.innerWidth || 0;
   if (fullvw > 1200) {
     let preloader = document.createElement("div"),
-        ss = new CustomScrollSpy();
+      ss = new CustomScrollSpy();
     $(preloader)
       .addClass("preloader")
       .html('<b>L<i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>ADING</b>');
@@ -76,26 +75,26 @@ $("document").ready(function(){
       var self = this;
       if (!$(target).hasClass("disabled")) {
         var prevVal = parseInt($(section + " .slider-controls .counter .number span").text());
-        $(section + " .slider-controls .counter .number span").html(prevVal+1*k);
+        $(section + " .slider-controls .counter .number span").html(prevVal + 1 * k);
         $(target).off("click.increment");
-        setTimeout(()=>{
-          $(target).on("click.increment", ()=> {
+        setTimeout(() => {
+          $(target).on("click.increment", () => {
             pageIncrement(k, section, target);
           })
         }, 1000);
       }
     }
 
-    $("#team .slider-controls .prev").on("click.increment", function(){
+    $("#team .slider-controls .prev").on("click.increment", function () {
       pageIncrement(-1, "#team", this);
     });
-    $("#team .slider-controls .next").on("click.increment", function(){
+    $("#team .slider-controls .next").on("click.increment", function () {
       pageIncrement(1, "#team", this);
     });
-    $("#portfolio .slider-controls .prev").on("click.increment", function(){
+    $("#portfolio .slider-controls .prev").on("click.increment", function () {
       pageIncrement(-1, "#portfolio", this);
     });
-    $("#portfolio .slider-controls .next").on("click.increment", function(){
+    $("#portfolio .slider-controls .next").on("click.increment", function () {
       pageIncrement(1, "#portfolio", this);
     });
 
@@ -115,8 +114,8 @@ $("document").ready(function(){
         $(nodes[i])
 
           .addClass("slide-to-right").removeClass("slide-to-right-out").css({
-          "animation-delay": i * 0.07 + 1 + "s"
-        });
+            "animation-delay": i * 0.07 + 1 + "s"
+          });
       }
     }
 
@@ -137,10 +136,10 @@ $("document").ready(function(){
           .removeClass("slide-to-right")
           .addClass("slide-to-right-out")
           .css({
-          "animation-delay": i * 0.1 + "s"
-        });
+            "animation-delay": i * 0.1 + "s"
+          });
       }
-      setTimeout(()=>{
+      setTimeout(() => {
         $(selector).css("display", "none");
       }, 1000);
 
@@ -157,7 +156,7 @@ $("document").ready(function(){
         });
         justOpened = false;
       }
-      setTimeout(()=>{
+      setTimeout(() => {
         $("#corn-arc").css({
           'background-image': 'url("/images/arc.svg"), url("/images/kukuruza-1-optimized-laptop-mid.jpg")'
         });
@@ -288,42 +287,42 @@ $("document").ready(function(){
       applyCommonHideBehaviour("#feedback");
     });
 
-    $('body').imagesLoaded( { background: true }, function() {
-        $(".preloader").fadeOut(500);
-        ss.init();
-        new SlideAnimationHandler();
-        $(".navbar-top .navbar-right, body > footer, .navbar-left").addClass("fade-in").css({
-          "animation-delay": "1s"
-        });
+    $('body').imagesLoaded({ background: true }, function () {
+      $(".preloader").fadeOut(500);
+      ss.init();
+      new SlideAnimationHandler();
+      $(".navbar-top .navbar-right, body > footer, .navbar-left").addClass("fade-in").css({
+        "animation-delay": "1s"
+      });
     });
     console.log($("#anim-eclipse").width());
-    $("body").click(function(event){
+    $("body").click(function (event) {
       console.log(event.clientX);
     });
 
     class SlideAnimationHandler {
-      constructor () {
+      constructor() {
         //16 - root font size, 1 rem
         //ecc - elipseCenterCoords
         this.elipseWidth = $("#anim-eclipse").width();
         let remSize = parseInt($("html").css("font-size")),
-            sliderControlsOffsetLeft = document.documentElement.clientWidth * (1-0.27),
-            controlsWrapOffset = 5.2 * remSize,
-            buttonOffset = ((0.7 + 0.55 + 0.812)/ 2 + 1) * remSize,
-            cornArcWidth = document.documentElement.clientWidth * 0.387,
-            elipseTargetWidth = 0,
-            animation = {
-              start: {
-                scaleX: 1,
-                scaleY: 1,
-                translateX: 0
-              },
-              finish: {
-                scaleX: 1,
-                scaleY: 1,
-                translateX: 0
-              }
-            };
+          sliderControlsOffsetLeft = document.documentElement.clientWidth * (1 - 0.27),
+          controlsWrapOffset = 5.2 * remSize,
+          buttonOffset = ((0.7 + 0.55 + 0.812) / 2 + 1) * remSize,
+          cornArcWidth = document.documentElement.clientWidth * 0.387,
+          elipseTargetWidth = 0,
+          animation = {
+            start: {
+              scaleX: 1,
+              scaleY: 1,
+              translateX: 0
+            },
+            finish: {
+              scaleX: 1,
+              scaleY: 1,
+              translateX: 0
+            }
+          };
 
 
         this.initialECC = $("#anim-eclipse").offset().left + this.elipseWidth * (1 - 0.163841808);
@@ -333,13 +332,13 @@ $("document").ready(function(){
         animation.start.scaleY = 1 + ($("#corn-arc").offset().left - ($("#anim-eclipse").offset().left + startEccOffset)) / this.elipseWidth;
 
 
-        this.finishECC = document.documentElement.clientWidth * (1 - 1 * 0.387 * (1 -  0.96));
+        this.finishECC = document.documentElement.clientWidth * (1 - 1 * 0.387 * (1 - 0.96));
         let finishEccOffset = this.finishECC - this.startECC;
         elipseTargetWidth = this.elipseWidth + finishEccOffset;
 
         animation.finish.translateX = (startEccOffset + finishEccOffset) / 2.3;
-        animation.finish.scaleX = elipseTargetWidth/this.elipseWidth;
-        animation.finish.scaleY = elipseTargetWidth/this.elipseWidth + 0.5;
+        animation.finish.scaleX = elipseTargetWidth / this.elipseWidth;
+        animation.finish.scaleY = elipseTargetWidth / this.elipseWidth + 0.5;
 
         console.log(this.initialECC);
         console.log(this.elipseWidth);

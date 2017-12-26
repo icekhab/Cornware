@@ -1,0 +1,11 @@
+CREATE TABLE public."Ñandidate"
+(
+    "Id" uuid NOT NULL DEFAULT gen_random_uuid(),
+    name character(200)[] COLLATE pg_catalog."default" NOT NULL,
+    email character(200)[] COLLATE pg_catalog."default" NOT NULL,
+    phone character(100)[] COLLATE pg_catalog."default" NOT NULL,
+    message character(500)[] COLLATE pg_catalog."default" NOT NULL,
+    "cvPath" character(400)[] COLLATE pg_catalog."default" NOT NULL,
+    date timestamp without time zone NOT NULL DEFAULT now(),
+    CONSTRAINT "Ñandidate_pkey" PRIMARY KEY ("Id")
+)

@@ -45,6 +45,8 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/transition.js"></script>
+  <script src="/js/clientLetter.js"></script>
+  <script src="/js/candidateLetter.js"></script>
   <script src="/js/jquery.mousewheel.js"></script>
   <script src="/js/imagesloaded.pkgd.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/component.css" />
@@ -709,11 +711,12 @@
       <div class="row animated-row">
         <div class="col-xs-12 col-md-6 col-lg-6">
           <form class="contact-form animated-row" action="" method="POST">
-            <input type="text" required class="form-control" placeholder="Ваше имя"/>
-            <input type="email" required class="form-control" placeholder="Ваш e-mail"/>
-            <input type="text" required class="form-control" placeholder="Номер телефона"/>
-            <textarea class="form-control" required placeholder="Введите сообщение"></textarea>
-            <button class="btn btn-primary btn-block" type="submit">Отправить</button>
+            <input type="text" required class="form-control name" placeholder="Ваше имя"/>
+            <input type="email" required class="form-control email" placeholder="Ваш e-mail"/>
+            <input type="text" required class="form-control phone" placeholder="Номер телефона"/>
+            <input type="file" required class="form-control cv" placeholder="Выберете резюме"/>
+            <textarea class="form-control message" required placeholder="Введите сообщение"></textarea>
+            <button id="btn-candidate-letter" class="btn btn-primary btn-block" type="submit">Отправить</button>
           </form>
         </div>
       </div>
