@@ -1,7 +1,6 @@
 'use strict';
 
-window.validateForm = function (inputs) {
-  debugger
+window.validateForm = function (inputs) {  
   let warnings = 0;
   for (let input of inputs) {
     let val = $(input).val().trim();

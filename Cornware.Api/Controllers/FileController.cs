@@ -41,12 +41,23 @@ namespace Cornware.Api.Controllers
             var file = Request.Form.Files[0];
 
             var filePath = Path.Combine(Path.Combine(_hostingEnvironment.WebRootPath, "CV"), file.FileName);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
+			string fileNameOnly = Path.GetFileNameWithoutExtension(filePath);
+			string extension = Path.GetExtension(filePath);
+			string path = Path.GetDirectoryName(filePath);
+			int count = 1;
+
+			while (System.IO.File.Exists(filePath))
+			{
+				string tempFileName = string.Format("{0}({1})", fileNameOnly, count++);
+				filePath = Path.Combine(path, tempFileName + extension);
+			}
+
+			using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
                 file.CopyTo(fileStream);
             }
 
-            return Ok();
+            return Ok(filePath);
         }
     }
 }

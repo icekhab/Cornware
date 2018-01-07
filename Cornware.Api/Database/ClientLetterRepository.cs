@@ -5,22 +5,29 @@ using Npgsql;
 
 namespace Cornware.Api.Database
 {
-    public class ClientLetterRepository : BaseRepository, IClientLetterRepository
-    {
-        public ClientLetterRepository(IConfiguration configuration) : base(configuration)
-        {
-        }
+	public class ClientLetterRepository : BaseRepository, IClientLetterRepository
+	{
+		public ClientLetterRepository(IConfiguration configuration) : base(configuration)
+		{
+		}
 
-        public async Task Add(string name, string email, string phone, string message)
-        {
-            var query = $@"insert into ClientLetter(name, email, phone, message)
-                                values('{name}', '{email}', '{phone}', '{message}');";
+		public async Task Add(string name, string email, string phone, string message)
+		{
+			var query = $@"insert into public.""ClientLetter""(name, email, phone, message)
+                                values(@name, @email, @phone, @message);";
 
-            using (var conn = new NpgsqlConnection(ConnectionString))
-            {
-                conn.Open();
-                await conn.ExecuteAsync(query);
-            }
-        }
-    }
+			using (var conn = new NpgsqlConnection(ConnectionString))
+			{
+				conn.Open();
+
+				await conn.ExecuteAsync(query, new
+				{
+					name,
+					email,
+					phone,
+					message
+				});
+			}
+		}
+	}
 }

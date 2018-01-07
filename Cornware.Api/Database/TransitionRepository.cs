@@ -14,12 +14,12 @@ namespace Cornware.Api.Database
         public async Task Add(string url, string ip)
         {
             var query = $@"insert into Transition(ip, url)
-                                values('{ip}', '{url}');";
+                                values(@ip, @url);";
 
             using (var conn = new NpgsqlConnection(ConnectionString))
             {
                 conn.Open();
-                await conn.ExecuteAsync(query);
+                await conn.ExecuteAsync(query, new { ip, url });
             }
         }
     }

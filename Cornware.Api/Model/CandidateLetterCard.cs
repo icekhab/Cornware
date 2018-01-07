@@ -14,5 +14,6 @@ namespace Cornware.Api.Model
         public string Message { get; set; }
         public DateTime Date { get; set; }
         public string CvPath { get; set; }
-    }
+		public string CvFileName { get; set; }
+	}
 }

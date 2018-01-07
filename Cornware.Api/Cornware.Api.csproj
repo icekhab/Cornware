@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CV\" />
+    <Compile Remove="CV\**" />
+    <Content Remove="CV\**" />
+    <EmbeddedResource Remove="CV\**" />
+    <None Remove="CV\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\CV\" />
   </ItemGroup>
 

@@ -8,25 +8,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cornware.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [EnableCors("MyPolicy")]
-    public class CandidateLetterController : Controller
-    {
-        private readonly IСandidateRepository _candidateRepository;
-        public CandidateLetterController(IСandidateRepository candidateRepository)
-        {
-            _candidateRepository = candidateRepository;
-        }
+	[Route("api/[controller]")]
+	[EnableCors("MyPolicy")]
+	public class CandidateLetterController : Controller
+	{
+		private readonly IСandidateRepository _candidateRepository;
+		public CandidateLetterController(IСandidateRepository candidateRepository)
+		{
+			_candidateRepository = candidateRepository;
+		}
 
-        // POST api/values
-        [HttpPost]
-        [Route("")]
-        public IActionResult Post()
-        {
-            var lol = Request.GetMultipartBoundary();
-
-            // await _candidateRepository.Add(candidateLetter.Name, candidateLetter.Email, candidateLetter.Phone, candidateLetter.Message, candidateLetter.CvPath);
-            return Ok();
-        }
-    }
+		// POST api/candidateLetter
+		[HttpPost]
+		[Route("")]
+		public async Task<IActionResult> Post(CandidateLetterCard candidateLetter)
+		{
+			await _candidateRepository.Add(candidateLetter.Name, candidateLetter.Email, candidateLetter.Phone, candidateLetter.Message, candidateLetter.CvPath, candidateLetter.CvFileName);
+			return Ok();
+		}
+	}
 }

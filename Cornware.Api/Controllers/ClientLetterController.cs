@@ -16,10 +16,10 @@ namespace Cornware.Api.Controllers
             _clientLetterRepository = clientLetterRepository;
         }
 
-        // POST api/values
-        [HttpPost]
+		// POST api/clientLetter
+		[HttpPost]
         [Route("")]
-        public async  Task<IActionResult> Post([FromBody]ClientLetterCard clientLetter)
+        public async  Task<IActionResult> Post(ClientLetterCard clientLetter)
         {
             await _clientLetterRepository.Add(clientLetter.Name, clientLetter.Email, clientLetter.Phone, clientLetter.Message);
             return Ok();

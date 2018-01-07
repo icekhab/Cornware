@@ -1,0 +1,40 @@
+CREATE EXTENSION pgcrypto;
+
+go
+
+CREATE TABLE public.transition
+(
+    id uuid NOT NULL DEFAULT gen_random_uuid(),
+    ip character varying(40) COLLATE pg_catalog."default",
+    url character varying(500) COLLATE pg_catalog."default",
+    date timestamp without time zone NOT NULL DEFAULT now(),
+    CONSTRAINT transition_pkey PRIMARY KEY (id)
+)
+
+go
+
+CREATE TABLE public."ClientLetter"
+(
+    id uuid NOT NULL DEFAULT gen_random_uuid(),
+    name character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    phone character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    message character varying(500) COLLATE pg_catalog."default" NOT NULL,
+    date timestamp without time zone NOT NULL DEFAULT now(),
+    CONSTRAINT "ClientLetter_pkey" PRIMARY KEY (id)
+)
+
+go
+
+CREATE TABLE public."Candidate"
+(
+    "Id" uuid NOT NULL DEFAULT gen_random_uuid(),
+    name character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    phone character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    message character varying(500) COLLATE pg_catalog."default" NOT NULL,
+    cvpath character varying(400) COLLATE pg_catalog."default" NOT NULL,
+    cvfilename character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    date timestamp without time zone NOT NULL DEFAULT now(),
+    CONSTRAINT "Candidate_pkey" PRIMARY KEY ("Id")
+)
