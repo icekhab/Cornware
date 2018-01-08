@@ -1,9 +1,8 @@
-﻿using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Cornware.Api.Core;
 using Cornware.Api.Database;
 using Cornware.Api.Model;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cornware.Api.Controllers
@@ -12,10 +11,13 @@ namespace Cornware.Api.Controllers
 	[EnableCors("MyPolicy")]
 	public class CandidateLetterController : Controller
 	{
-		private readonly IСandidateRepository _candidateRepository;
-		public CandidateLetterController(IСandidateRepository candidateRepository)
+		private readonly СandidateRepository _candidateRepository;
+		private readonly ITelegramService _telegramService;
+
+		public CandidateLetterController(СandidateRepository candidateRepository, ITelegramService telegramService)
 		{
 			_candidateRepository = candidateRepository;
+			_telegramService = telegramService;
 		}
 
 		// POST api/candidateLetter
@@ -24,6 +26,7 @@ namespace Cornware.Api.Controllers
 		public async Task<IActionResult> Post(CandidateLetterCard candidateLetter)
 		{
 			await _candidateRepository.Add(candidateLetter.Name, candidateLetter.Email, candidateLetter.Phone, candidateLetter.Message, candidateLetter.CvPath, candidateLetter.CvFileName);
+			await _telegramService.SendCandiadateLetter(candidateLetter);
 			return Ok();
 		}
 	}

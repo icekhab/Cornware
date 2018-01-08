@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Cornware.Api.Core;
 using Cornware.Api.Database;
 using Cornware.Api.Model;
 using Microsoft.AspNetCore.Cors;
@@ -10,11 +11,15 @@ namespace Cornware.Api.Controllers
     [EnableCors("MyPolicy")]
     public class ClientLetterController : Controller
     {
-        private readonly IClientLetterRepository _clientLetterRepository;
-        public ClientLetterController(IClientLetterRepository clientLetterRepository)
+        private readonly ClientLetterRepository _clientLetterRepository;
+		private readonly ITelegramService _telegramService;
+
+
+		public ClientLetterController(ClientLetterRepository clientLetterRepository, ITelegramService telegramService)
         {
             _clientLetterRepository = clientLetterRepository;
-        }
+			_telegramService = telegramService;
+		}
 
 		// POST api/clientLetter
 		[HttpPost]
@@ -22,7 +27,8 @@ namespace Cornware.Api.Controllers
         public async  Task<IActionResult> Post(ClientLetterCard clientLetter)
         {
             await _clientLetterRepository.Add(clientLetter.Name, clientLetter.Email, clientLetter.Phone, clientLetter.Message);
-            return Ok();
+			await _telegramService.SendClientLetter(clientLetter);
+			return Ok();
         }
     }
 }

@@ -38,3 +38,9 @@ CREATE TABLE public."Candidate"
     date timestamp without time zone NOT NULL DEFAULT now(),
     CONSTRAINT "Candidate_pkey" PRIMARY KEY ("Id")
 )
+
+CREATE TABLE public."TelegramClient"
+(
+    id bigint NOT NULL,
+    CONSTRAINT "TelegramClient_pkey" PRIMARY KEY (id)
+)

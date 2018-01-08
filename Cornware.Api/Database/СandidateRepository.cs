@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Cornware.Api.Core;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 
 namespace Cornware.Api.Database
 {
-	public class СandidateRepository : BaseRepository, IСandidateRepository
+	public class СandidateRepository : BaseRepository, IСandidateService
 	{
 		public СandidateRepository(IConfiguration configuration) : base(configuration)
 		{
@@ -20,16 +21,22 @@ namespace Cornware.Api.Database
 			using (var conn = new NpgsqlConnection(ConnectionString))
 			{
 				conn.Open();
-				await conn.ExecuteAsync(query, new
+				try
 				{
-					name,
-					email,
-					phone,
-					message,
-					cvPath,
-					cvFileName
-				});
+					await conn.ExecuteAsync(query, new
+					{
+						name,
+						email,
+						phone,
+						message,
+						cvPath,
+						cvFileName
+					});
+				}
+				catch(Exception ex)
+				{
 
+				}
 			}
 		}
 	}

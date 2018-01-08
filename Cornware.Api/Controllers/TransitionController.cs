@@ -9,8 +9,8 @@ namespace Cornware.Api.Controllers
     [EnableCors("MyPolicy")]
     public class TransitionController : Controller
     {
-        private ITransitionRepository _transitionRepository;
-        public TransitionController(ITransitionRepository transitionRepository)
+        private TransitionRepository _transitionRepository;
+        public TransitionController(TransitionRepository transitionRepository)
         {
             _transitionRepository = transitionRepository;
         }

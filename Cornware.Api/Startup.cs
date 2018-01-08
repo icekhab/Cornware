@@ -1,4 +1,7 @@
-﻿using Cornware.Api.Database;
+﻿using Cornware.Api.Common;
+using Cornware.Api.Core;
+using Cornware.Api.Database;
+using Cornware.Api.Telegram;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Cornware.Api
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -19,14 +22,23 @@ namespace Cornware.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddScoped<ITransitionRepository, TransitionRepository>();
-            services.AddScoped<IClientLetterRepository, ClientLetterRepository>();
-            services.AddScoped<IСandidateRepository, СandidateRepository>();
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+
+			// services.AddSingleton(new TelegramSettings(Configuration.GetValue<string>("TelegramBotInfo:Url"), Configuration.GetValue<string>("TelegramBotInfo:Name"), Configuration.GetValue<string>("TelegramBotInfo:Key")));
+
+			services.AddScoped<TransitionRepository>();
+            services.AddScoped<ClientLetterRepository>(); 
+			services.AddScoped< СandidateRepository>();
+			services.AddSingleton(new TelegramBot(new TelegramClientRepository(Configuration)));
+			services.AddScoped<ITelegramClientRepository, TelegramClientRepository>();
+
+			services.AddScoped<ITelegramService, TelegramService>();
+
+			services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
                     .AllowAnyMethod()
-                    .AllowAnyHeader();
+                    .AllowAnyHeader()
+					.AllowCredentials();
             }));
         }
 

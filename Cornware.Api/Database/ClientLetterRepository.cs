@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
+using Cornware.Api.Core;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 
 namespace Cornware.Api.Database
 {
-	public class ClientLetterRepository : BaseRepository, IClientLetterRepository
+	public class ClientLetterRepository : BaseRepository, IClientLetterService
 	{
 		public ClientLetterRepository(IConfiguration configuration) : base(configuration)
 		{

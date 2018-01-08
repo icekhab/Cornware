@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Cornware.Api.Database
+namespace Cornware.Api.Core
 {
-    public interface ITransitionRepository
+    public interface ITransitionService
     {
         Task Add(string url, string ip);
     }
