@@ -25,8 +25,8 @@ namespace Cornware.Api.Controllers
 		[Route("")]
 		public async Task<IActionResult> Post(CandidateLetterCard candidateLetter)
 		{
-			await _candidateRepository.Add(candidateLetter.Name, candidateLetter.Email, candidateLetter.Phone, candidateLetter.Message, candidateLetter.CvPath, candidateLetter.CvFileName);
-			await _telegramService.SendCandiadateLetter(candidateLetter);
+			var candidateLetterId = await _candidateRepository.Add(candidateLetter.Name, candidateLetter.Email, candidateLetter.Phone, candidateLetter.Message, candidateLetter.CvPath, candidateLetter.CvFileName);
+			await _telegramService.SendCandiadateLetter(await _candidateRepository.Get(candidateLetterId));
 			return Ok();
 		}
 	}

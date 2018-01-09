@@ -18,7 +18,7 @@ namespace Cornware.Api.Telegram
 
 		public async Task SendCandiadateLetter(CandidateLetterCard candidateLetter)
 		{
-			var message = $"Candiadate claim\nName: {candidateLetter.Name}\nEmail: {candidateLetter.Email}\nPhone: {candidateLetter.Phone}\nMessage: {candidateLetter.Message}";
+			var message = $"Заявка кандидата №{candidateLetter.Number}\nИмя: {candidateLetter.Name}\nEmail: {candidateLetter.Email}\nТелефон: {candidateLetter.Phone}\nКомментарий: {candidateLetter.Message}";
 			var clients = await _telegramClientRepository.Get();
 			foreach (var client in clients)
 			{
@@ -29,7 +29,7 @@ namespace Cornware.Api.Telegram
 
 		public async Task SendClientLetter(ClientLetterCard clientLetter)
 		{
-			var message = $"Client claim\nName: {clientLetter.Name}\nEmail: {clientLetter.Email}\nPhone: {clientLetter.Phone}\nMessage: {clientLetter.Message}";
+			var message = $"Заявка клиента №{clientLetter.Number}\nИмя: {clientLetter.Name}\nEmail: {clientLetter.Email}\nТелефон: {clientLetter.Phone}\nКомментарий: {clientLetter.Message}";
 			var clients = await _telegramClientRepository.Get();
 			foreach (var client in clients)
 			{

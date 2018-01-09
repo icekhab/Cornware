@@ -26,8 +26,8 @@ namespace Cornware.Api.Controllers
         [Route("")]
         public async  Task<IActionResult> Post(ClientLetterCard clientLetter)
         {
-            await _clientLetterRepository.Add(clientLetter.Name, clientLetter.Email, clientLetter.Phone, clientLetter.Message);
-			await _telegramService.SendClientLetter(clientLetter);
+            var clientLetterId = await _clientLetterRepository.Add(clientLetter.Name, clientLetter.Email, clientLetter.Phone, clientLetter.Message);
+			await _telegramService.SendClientLetter(await _clientLetterRepository.Get(clientLetterId));
 			return Ok();
         }
     }

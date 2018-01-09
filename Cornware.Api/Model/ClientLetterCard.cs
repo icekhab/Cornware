@@ -10,5 +10,6 @@ namespace Cornware.Api.Model
         public string Phone { get; set; }
         public string Message { get; set; }
         public DateTime Date { get; set; }
+        public long Number { get; set; }
     }
 }
