@@ -38,14 +38,21 @@ namespace Cornware.Api.Database
 
         public async Task<CandidateLetterCard> Get(Guid id)
         {
-            var query = @"select * from public.""Candidate"" where id = @id";
+            var query = @"select * from public.""Candidate"" where ""Id"" = @id";
 
             using (var conn = new NpgsqlConnection(ConnectionString))
             {
                 conn.Open();
+				try
+				{
+					return (await conn.QueryAsync<CandidateLetterCard>(query, new { id })).Single();
 
-                return (await conn.QueryAsync<CandidateLetterCard>(query, new { id })).Single();
-            }
+				}
+				catch (Exception ex)
+				{
+					throw ex;
+				}
+			}
         }
     }
 }
